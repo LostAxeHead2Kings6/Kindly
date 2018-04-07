@@ -126,7 +126,7 @@ class App extends React.Component {
 
   //This func scrolls from the Jumbotron to the Posts components
   ScrollTo(){
-    scroll.scrollTo(550);
+    scroll.scrollTo();
   }
 
   logOut() {
