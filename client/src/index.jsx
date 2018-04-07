@@ -140,7 +140,7 @@ class App extends React.Component {
   render() {
     console.log(this.props.userName)
     return (
-      <div onClick={this.setState({show: true})}>
+      <div onClick={this.setState({show: false})}>
       <NavigationBar onClick={this.ScrollTo} logOut={this.logOut} userName={this.props.userName} />
       <Maintron scrollTo={this.ScrollTo}/>
         <ReactBootstrap.Grid className="show-grid">
