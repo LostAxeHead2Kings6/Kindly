@@ -1,8 +1,8 @@
 module.exports = {
-  googleAPI: 'AIzaSyB4xGNkuXIf0eeYQPJ0UuF-eGg_s-TJIQw',
-  host: 'seeker.c7l7qn51j1yo.us-east-2.rds.amazonaws.com',
-  user: 'HouseLannister',
-  password: 'hearmeroar',
-  port: '3306',
-  database: 'kindly'
+  googleAPI: process.env.secretKey,
+  host: process.env.hoster,
+  user: process.env.user,
+  password: process.env.password,
+  port:  process.env.portnum,
+  database: process.env.database
 }
