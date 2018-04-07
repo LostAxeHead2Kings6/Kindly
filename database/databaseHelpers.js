@@ -47,7 +47,6 @@ connection.query(`CREATE TABLE IF NOT EXISTS post (
   city VARCHAR(25),
   state VARCHAR(2),
   zipCode VARCHAR(6),
-  phone VARCHAR(12),
   isClaimed BOOLEAN,
   emailAddress VARCHAR(50),
   createdAt INTEGER,
@@ -59,3 +58,8 @@ if (err) console.log(err)
 
 
 module.exports = connection;
+
+//INSERT INTO post (title, username, emailAddress, description, address, city, state, zipCode, isClaimed, photoUrl) VALUES ("Left Over Apples", "mvasios1@gmail.com", "mvasios1@gmail.com", "Leftover apples from this years harvest festival. Please call soon since these are ripening already. Limit 1 crate per caller", "197 Mountain Ave", "Warren", "NJ", "07059", false, "http://tasteofnovascotia.com/wp-content/uploads/2013/05/Muwin-Estates-Orchard.jpg");
+//INSERT INTO post (title, username, emailAddress, description, address, city, state, zipCode, isClaimed, photoUrl) VALUES ("Men"s Button Shirts", "mvasios1@gmail.com", "mvasios1@gmail.com", "In the process of moving to a new apartment and found several shirts I dont really use. Size L. Pretty decent shape. Please contact me if you want them, otherwise they are going to the curb soon", "53 Wolf Hill Drive", "Warren", "NJ", "07059", false, //"https://www.elizabethclareblog.com/wp-content/uploads/2015/10/IMG_9172.jpg");
+//INSERT INTO post (title, username, emailAddress, description, address, city, state, zipCode, isClaimed, photoUrl) VALUES ("Old Nintendo System with games", "mrnobody@yahoo.com", "mrnobody@yahoo.com", "Cleaning out the attic and came across these. To be honest I cannot say if they work. Games include Tetris, Super Mario, etc. Going to the curb if no one claims them", "18 Bank Street", "Summit", "NJ", "07901", false, "https://pbs.twimg.com/media/DSPbe6EXcAAOf5K.jpg")
+// INSERT INTO post (title, username, emailAddress, description, address, city, state, zipCode, isClaimed, photoUrl) VALUES ("Sony DVD player, like new", "johnsomebody@yahoo.com", "johnsomebody@yahoo.com", "Although I had this for 3 years I never used it. Okay maybe twice. I have extra DVDs I am considering selling in case anyone is interested.", "50 Roosevelt Ave", "Berkeley Heights", "NJ", "07922", false, "https://ytimg.googleusercontent.com/vi/qPs0ceOayy8/mqdefault.jpg");
