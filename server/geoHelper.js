@@ -1,7 +1,7 @@
 var geocoder = require('geocoder');
 var axios = require('axios');
 var key = require('../config.js');
-key = 'AIzaSyB4xGNkuXIf0eeYQPJ0UuF-eGg_s-TJIQw';
+key = 'AIzaSyAnBJSrnGiKY_OHA1j3fTgyj2Y6rpvMgjk';
 
 //As mentioned in server/index. and the form component, there are issues with guaranteeing valid addresses..
 //For the most part, this function works, but notice comments below
