@@ -1,7 +1,7 @@
 var geocoder = require('geocoder');
 var axios = require('axios');
 var key = require('../config.js');
-key = process.env.key || key.googleAPI;
+key = process.env.key;
 
 //As mentioned in server/index. and the form component, there are issues with guaranteeing valid addresses..
 //For the most part, this function works, but notice comments below
