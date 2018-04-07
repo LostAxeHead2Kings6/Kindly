@@ -126,7 +126,7 @@ class App extends React.Component {
 
   //This func scrolls from the Jumbotron to the Posts components
   ScrollTo(){
-    scroll.scrollTo();
+    scroll.scrollTo(550);
   }
 
   logOut() {
@@ -140,7 +140,7 @@ class App extends React.Component {
   render() {
     console.log(this.props.userName)
     return (
-      <div onClick={this.setState({show: false})}>
+      <div>
       <NavigationBar onClick={this.ScrollTo} logOut={this.logOut} userName={this.props.userName} />
       <Maintron scrollTo={this.ScrollTo}/>
         <ReactBootstrap.Grid className="show-grid">
