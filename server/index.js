@@ -6,7 +6,7 @@ var session = require("express-session");
 var twilio = require("twilio");
 var app = express();
 var moment = require("moment");
-var geo = require("./geoHelper.js")
+var geo = require("./geoHelper.js");
 
 app.use(express.static(__dirname + "/../client/dist"));
 app.use(bodyParser.json());
@@ -43,23 +43,20 @@ app.get("/fetch", function(req, res) {
 //This route receives a request upon submit from the form. The form holds all fields necesaary
 //to make a new db entry. This route will take in the request and simply save to the db
 app.post("/savepost", function(req, res) {
-  console.log(req.body);
   var listing = req.body;
   db.query(
-    `INSERT INTO post (title, description, address, city, state, zipCode, emailAddress, isClaimed, createdAt, photoUrl) VALUES ("${
-      listing.title
-    }", "${listing.description}", "${listing.address}","${listing.city}", "${
-      listing.state
-    }", "${listing.zipCode}", "${listing.emailAddress}", false, "${moment().unix()}", "${listing.photoUrl}");`,
+    `INSERT INTO post
+      (title, description, address, city, state, zipCode, emailAddress, isClaimed, createdAt, photoUrl)
+    VALUES
+      ("${listing.title}", "${listing.description}", "${listing.address}","${listing.city}",
+      "${listing.state}", "${listing.zipCode}", "${listing.emailAddress}", false, "${moment().unix()}", "${listing.photoUrl}");`,
     (err, data) => {
-      console.log('entry made?')
       res.end();
     }
   );
 });
 
 app.get('/logout', function(req, res) {
-  console.log('request received');
   req.session.destroy()
   res.status(200).send()
 })
@@ -116,9 +113,8 @@ app.post("/signup", function(req, res) {
 });
 
 app.post("/login", function(req, res) {
-  var sqlQuery = `SELECT claimerUsername FROM claimer WHERE claimerUsername="${
-    req.body.username
-  }" AND cPassword ="${req.body.password}"`;
+  var sqlQuery = `SELECT claimerUsername FROM claimer WHERE claimerUsername=
+    "${req.body.username}" AND cPassword ="${req.body.password}"`;
   db.query(sqlQuery, function(error, results) {
     if (error) {
       throw error;
@@ -161,7 +157,6 @@ app.post("/chat", function(req, res) {
         .then(message => {
           res.end();
         });
-      // res.end()
     });
 });
 

@@ -1,17 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import axios from "axios";
-
 import NavigationBar from "./components/navbar.jsx";
 import Maintron from "./components/jumbotron.jsx";
 import List from "./components/list.jsx";
 import Form from "./components/form.jsx";
 import DescriptionCard from "./components/descriptionCard.jsx";
-import LoginPage from "./Components/login.jsx"
-import Signup from "./Components/signup.jsx"
-import MapComponent from "./components/googleMaps.jsx"
-import Trigger from "./components/responsiveButton.jsx"
-import { Link, DirectLink, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import LoginPage from "./Components/login.jsx";
+import Signup from "./Components/signup.jsx";
+import MapComponent from "./components/googleMaps.jsx";
+import Trigger from "./components/responsiveButton.jsx";
+import { Link, DirectLink, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
 
 
 class App extends React.Component {
@@ -25,7 +24,7 @@ class App extends React.Component {
         description: null,
         id: null
       },
-      show: false, //this state is used to show/hide the DescriptionCard comoponent, which is changed via changeFeatured function
+      show: false, //this state is used to show/hide the DescriptionCard component, which is changed via changeFeatured function
       latitude: 40.750576,
       longitude: -73.976437
     };
@@ -47,7 +46,6 @@ class App extends React.Component {
   //retrieves lat/long data from server/geo-helper function
   //sets the lat/long state, which is passed to the googleMaps component that renders the map
   changeFeatured(listItem) {
-    console.log(this.state.show);
     if (this.state.show === false){
       this.setState({
         featuredItem: listItem,
@@ -63,24 +61,22 @@ class App extends React.Component {
         })
     }
     else if(this.state.show === true){
-      if (this.state.featuredItem.id === listItem.id){
+      if (this.state.featuredItem.id === listItem.id) {
         this.setState({
           show: false
         })
-      }else{
+      } else {
         this.setState({
           featuredItem: listItem,
           show: true
         })
       }
     }
-
   }
 
   //This function retrieves all post data from the mySql database
   retrievePosts() {
-    axios
-      .get("/fetch")
+    axios.get("/fetch")
       .then(results => {
         this.setState({
           posts: results.data
@@ -93,8 +89,7 @@ class App extends React.Component {
 
   //This function updates the selected post that is claimed (in database)
   handleClaim(claimedPostID) {
-    axios
-      .post("/updateentry", {
+    axios.post("/updateentry", {
         postID: claimedPostID
       })
       .then(done => {
@@ -103,10 +98,10 @@ class App extends React.Component {
           show:!this.state.show
         })
 
-        axios.post('/chat', {
-          title: this.state.featuredItem.title
-        }).then(messageSent => console.log('text messages sent!'))
-      });
+    axios.post('/chat', {
+        title: this.state.featuredItem.title
+      })
+    });
   }
 
   //This func is being passed to the Form Compnent and closes the Trigger Component/Modal
@@ -132,16 +127,17 @@ class App extends React.Component {
   logOut() {
     axios.get('/logout')
     .then(()=> {
-      console.log('response received');
       ReactDOM.render(<LoginPage />, document.getElementById("app"));
     })
   }
 
   render() {
-    console.log(this.props.userName)
     return (
       <div>
-      <NavigationBar onClick={this.ScrollTo} logOut={this.logOut} userName={this.props.userName} />
+      <NavigationBar onClick={this.ScrollTo}
+                     logOut={this.logOut}
+                     userName={this.props.userName}
+      />
       <Maintron scrollTo={this.ScrollTo}/>
         <ReactBootstrap.Grid className="show-grid">
           <ReactBootstrap.Row>
@@ -176,8 +172,6 @@ class App extends React.Component {
           longitude={this.state.longitude}
         />
         </div>
-
-
       </div>
     );
   }

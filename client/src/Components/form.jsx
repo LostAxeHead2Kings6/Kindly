@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import {FormControl, FormGroup, ControlLabel, Button} from 'react-bootstrap';
 import Trigger from "../components/responsiveButton.jsx";
+
 class Form extends React.Component {
   constructor(props) {
     super(props);
@@ -28,7 +29,6 @@ class Form extends React.Component {
     this.handleState = this.handleState.bind(this);
     this.handleZipcode = this.handleZipcode.bind(this);
     this.handlePhotoUrl = this.handlePhotoUrl.bind(this);
-    //title, description, address, city, state, zip_code, is_claimed
   }
   savePost(e) {
     e.preventDefault()

@@ -28,9 +28,11 @@ export default class Signup extends Component {
       username: this.state.username,
       password: this.state.password,
       zipcode: this.state.zipcode
-    }).then(() => {
+    })
+    .then(() => {
       this.setState({username: '', password: '', zipcode: ''});
-    }).catch((error) => {
+    })
+    .catch((error) => {
       throw error;
     })
   }

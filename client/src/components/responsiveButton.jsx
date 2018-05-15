@@ -20,7 +20,6 @@ class Trigger extends React.Component {
             volunteers like you that keep our vision at Kindly alive.
           </p>
 
-
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={this.props.onHide}>Close</Button>

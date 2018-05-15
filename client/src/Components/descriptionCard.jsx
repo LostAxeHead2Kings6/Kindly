@@ -14,8 +14,8 @@ const DescriptionCard = (props) => {
         <p>{props.featuredItem.description}</p>
         <p>Reach me at: {props.featuredItem.emailAddress}</p>
         <img height='150px' src={props.featuredItem.photoUrl}/>
-        <div>
-        <button onClick={() => props.claimHandler(props.featuredItem.id)}>Claim</button>
+      	<div>
+        	<button onClick={() => props.claimHandler(props.featuredItem.id)}>Claim</button>
         </div>
       </div>
     </Popover>

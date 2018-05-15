@@ -8,7 +8,6 @@ import axios from 'axios'
 export default class LoginPage extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       email: "",
       password: ""
@@ -34,11 +33,12 @@ export default class LoginPage extends Component {
     axios.post('/login', {
       username: this.state.email,
       password: this.state.password
-    }).then((response) => {
-      console.log("Successfully logged in")
+    })
+    .then((response) => {
       this.setState({username: '', password: ''});
       ReactDOM.render(<App userName={response.data}/>, document.getElementById("app"));
-    }).catch((error) => {
+    })
+    .catch((error) => {
       throw error;
     })
 
@@ -49,10 +49,12 @@ export default class LoginPage extends Component {
     axios.post('/signup', {
       username: this.state.email,
       password: this.state.password,
-    }).then((response) => {
+    })
+    .then((response) => {
       this.setState({username: '', password: ''});
       ReactDOM.render(<App userName={response.data}/>, document.getElementById("app"));
-    }).catch((error) => {
+    })
+    .catch((error) => {
       throw error;
     })
   }
